@@ -1,5 +1,7 @@
+import ReactComponent from "./react-component";
+
 const { registerBlockType } = wp.blocks;
-const {RichText}=wp.editor;
+const { RichText } = wp.editor;
 
 registerBlockType("myguten-block/test-block", {
   title: "Basic Example",
@@ -7,23 +9,22 @@ registerBlockType("myguten-block/test-block", {
   category: "widgets",
 
   attributes: {
-        content: {
-            type: 'array',
-            source: 'children',
-            selector: 'p',
-        },
-    },
-
+    content: {
+      type: "array",
+      source: "children",
+      selector: "p"
+    }
+  },
 
   edit: props => {
+    console.log("editor", props);
 
-	console.log('editor',props)
-	
-	return(
-		<div>
-		golam
-		</div>
-	)
+    return (
+      <div className="my-golam-wrapper">
+        <ReactComponent />
+      </div>
+      
+      );
   },
   save: props => <div></div>
 });
